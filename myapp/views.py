@@ -27,7 +27,7 @@ def index(request):
 def prestasi(request):
     context = {}
     try:
-        recent_posts = Post.objects.filter(category__name='prestasi').order_by("-id")[:3]
+        recent_posts = Post.objects.filter(category__name='prestasi').order_by("-id")[:2]
         posts = Post.objects.filter(category__name='prestasi')
         posts_asia = Post.objects.filter(category__name='prestasi',pendidikan__name='asia')
         posts_nasional = Post.objects.filter(category__name='prestasi',pendidikan__name='nasional')
@@ -37,12 +37,12 @@ def prestasi(request):
 
         context.update({
             'posts': posts,
+            'recent_posts': recent_posts,
             'posts_asia': posts_asia,
             'posts_nasional': posts_nasional,
             'posts_provinsi': posts_provinsi,
             'posts_kabupaten': posts_kabupaten,
             'posts_kecamatan': posts_kecamatan,
-            'recent_posts': recent_posts,
             'media_url': settings.MEDIA_URL
         })
     except Post.DoesNotExist as e:
@@ -55,13 +55,12 @@ def pendidikan_ma(request):
     try:
         kegiatan_posts = Post.objects.filter(category__name='kegiatan', pendidikan__name='ma')
         prestasi_posts = Post.objects.filter(category__name='prestasi', pendidikan__name='ma')
-
+        
         context.update({
             'kegiatan_posts': kegiatan_posts,
             'prestasi_posts': prestasi_posts,
             'media_url': settings.MEDIA_URL
         })
-        print(kegiatan_posts)
     except Post.DoesNotExist as e:
         context['error'] = f"Error fetching posts: {str(e)}"
 
@@ -191,20 +190,57 @@ def contact_view(request):
 def profil(request):
     return render(request, 'profil.html')
 
+def profillpi(request):
+    context = {}
+    try:
+        recent_posts = Post.objects.filter(category__name='prestasi').order_by("-id")[:2]
+        posts = Post.objects.filter(category__name='prestasi')
+        kegiatan_posts = Post.objects.filter(category__name='kegiatan', pendidikan__name='smp')
+        prestasi_posts = Post.objects.filter(category__name='prestasi', pendidikan__name='smp')
+        posts_asia = Post.objects.filter(category__name='prestasi',pendidikan__name='asia')
+        posts_nasional = Post.objects.filter(category__name='prestasi',pendidikan__name='nasional')
+        posts_provinsi = Post.objects.filter(category__name='prestasi',pendidikan__name='provinsi')
+        posts_kabupaten = Post.objects.filter(category__name='prestasi',pendidikan__name='kabupaten')
+        posts_kecamatan = Post.objects.filter(category__name='prestasi',pendidikan__name='kecamatan')
+
+        context.update({
+            'kegiatan_posts': kegiatan_posts,
+            'prestasi_posts': prestasi_posts,
+            'posts_asia': posts_asia,
+            'posts_nasional': posts_nasional,
+            'posts_provinsi': posts_provinsi,
+            'posts_kabupaten': posts_kabupaten,
+            'posts_kecamatan': posts_kecamatan,
+            'posts': posts,
+            'recent_posts': recent_posts,
+            'media_url': settings.MEDIA_URL
+        })
+        print(kegiatan_posts)
+    except Post.DoesNotExist as e:
+        context['error'] = f"Error fetching posts: {str(e)}"
+    
+    return render(request, 'profillpi.html', context)
+
 def struktur_organisasi(request):
     return render(request, 'struktur_organisasi.html')
 
 def akreditasi(request):
     return render(request, 'akreditasi.html')
 
-def pendidikan_ma(request):
-    return render(request, 'pendidikan_ma.html')
-
 def faqs(request):
     return render(request, 'faqs.html')
 
 def helpdesk(request):
-    return render(request, 'helpdesk.html')
+    success_message = ''
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            success_message = 'Thank you for contacting us. We will get back to you soon.'
+            form = ContactForm()  # Reset the form after saving
+    else:
+        form = ContactForm()
+    return render(request, 'helpdesk.html', {'form': form, 'success_message': success_message})
 
 def ppdb(request):
     return render(request, 'ppdb.html')

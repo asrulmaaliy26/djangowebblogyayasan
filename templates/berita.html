@@ -1,11 +1,10 @@
 {% extends "base.html" %} {% load static %} {% block title %}SMK Telkom
 Purwokerto{% endblock %} {% block content %}
-<section>
-  <img
-    style="width: 100%; margin-top: 60px"
-    src="https://placehold.co/800x300"
-    alt=""
-  />
+<section style="position: relative; text-align: center;">
+  <img width="100%" style="margin-top: 60px;height: 600px;object-fit: cover;filter: brightness(50%);" src="{% static 'assets/images/Header1.jpg' %}" alt="">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: white; font-weight: bold;">
+    BERITA
+  </div>
 </section>
 
 <div class="row">
@@ -16,8 +15,8 @@ Purwokerto{% endblock %} {% block content %}
         {% if page_obj %}
         {% for post in page_obj %}
         <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
-          <h4 class="text-center pt-5">{{ post.postname }}</h4>
-          <p class="text-center text-muted mb-2"><em>{{ post.created }}</em></p>
+          <h4 class="text-center pt-5 ">{{ post.postname }}</h4>
+          <p class="text-center text-muted mb-5"><em>{{ post.created }}</em></p>
           <div class="row border-bottom border-dark">
             <div class="col-md-6 mb-4">
               <p class="mt-4">

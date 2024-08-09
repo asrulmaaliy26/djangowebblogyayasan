@@ -8,32 +8,31 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = '__all__'
         widgets = {
-            'content': CKEditorWidget(),  # Menggunakan CKEditor untuk field konten
+            'content': CKEditorWidget(),  # Using CKEditor for content field
         }
-
-class PostInline(admin.TabularInline):
-    model = Post
-    extra = 1  # Menambahkan baris kosong untuk memasukkan data baru
-    fields = ('postname', 'category', 'pendidikan', 'image', 'link', 'created', 'updated')  # Hanya menampilkan field yang diinginkan
-    readonly_fields = ('created', 'updated')
-
-class CategoryAdmin(admin.ModelAdmin):
-    inlines = [PostInline]
-
-class PendidikanAdmin(admin.ModelAdmin):
-    inlines = [PostInline]
 
 class PostAdmin(admin.ModelAdmin):
     form = PostForm
-    list_display = ('postname', 'category', 'pendidikan', 'created', 'updated')  # Menampilkan field di daftar
-    list_filter = ('category', 'pendidikan')  # Menambahkan filter berdasarkan kategori dan pendidikan
-    search_fields = ('postname', 'content')  # Menambahkan fitur pencarian
+    list_display = ('postname', 'display_category', 'display_pendidikan', 'created', 'updated')
+    list_filter = ('category', 'pendidikan')
+    search_fields = ('postname', 'content')
+
+    def display_pendidikan(self, obj):
+        pendidikan_names = [pendidikan.name for pendidikan in obj.pendidikan.all()]
+        return ", ".join(pendidikan_names)
+    display_pendidikan.short_description = 'Pendidikan'
+    
+    def display_category(self, obj):
+        category_names = [category.name for category in obj.category.all()]
+        return ", ".join(category_names)
+    display_category.short_description = 'Category'
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Category)
 admin.site.register(Contact)
-admin.site.register(Pendidikan, PendidikanAdmin)
+admin.site.register(Pendidikan)
 
 admin.site.site_header = 'YAYASAN AL MANNAN | ADMIN PANEL'
 admin.site.site_title = 'AL MANNAN | BLOGGING WEBSITE'
 admin.site.index_title = 'Al - Mannan Site Administration'
+    

@@ -18,8 +18,8 @@ class Pendidikan(models.Model):
 
 class Post(models.Model):
     postname = models.CharField(max_length=600)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    pendidikan = models.ForeignKey(Pendidikan, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category)
+    pendidikan = models.ManyToManyField(Pendidikan) 
     image = models.ImageField(upload_to='images/posts', blank=True, null=True)
     content = RichTextField()
     link = models.URLField(max_length=200, blank=True, null=True)  # Field baru untuk link

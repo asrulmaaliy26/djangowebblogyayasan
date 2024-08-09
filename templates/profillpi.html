@@ -6,7 +6,7 @@
 <section style="position: relative; text-align: center;">
   <img width="100%" style="margin-top: 60px;height: 600px;object-fit: cover;filter: brightness(50%);filter: brightness(50%);" src="{% static 'assets/images/Header1.jpg' %}" alt="">
   <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: white; font-weight: bold;">
-    SMP
+    PROFIL LPI
   </div>
 </section>
 
@@ -235,7 +235,7 @@
 
         <!-- KATALOG -->
         <div class="tab-pane fade" id="visimisi" role="tabpanel" aria-labelledby="visimisi-tab">
-          
+         
     <section>
       <div class="container-fluid pt-5 pb-5 profil">
         <div class="container pt-5 pb-5">
@@ -249,22 +249,22 @@
             <div class="col-md-6">
               <h3 style="font-weight: 600; color:  #10683f; font-size: 36px;" class="pt-3 pb-5 text-center">VISI</h3>
               <div style="color: #FCCB1C;" class="col-md-12 text-center"><i class="fas fa-archive fa-6x"></i></div>
-              <p class="pt-5">Terwujudnya sekolah unggul dan rujukan pengemban Al-Qur’an, , berakhlakul karimah, cerdas dalam IPTEK,mahir dalam berbahasa.												
+              <p class="pt-5">MEWUJUDKAN GENERASI QUR’AN UNGGUL DAN RUJUKAN YANG BERWAWASAN LUAS, BERFIKIR MAJU DALAM IPTEK ,KUAT DALAM AQIDAH DAN MENJADI PELOPOR MULTILINGUAL MASYARAKAT QUR’ANI.
               </p>
             </div>
             <div class="col-md-6">
               <h3 style="font-weight: 600; color:  #10683f; font-size: 36px;" class="pt-3 pb-5 text-center">MISI</h3>
               <div style="color: #FCCB1C;" class="col-md-12 text-center"><i class="fas fa-edit fa-6x"></i></div>
               <p style="line-height: 60px;" class="pt-4">
-                1.     Membiasakan peserta didik menghafal dan mengamalkan al-Qur’an dalam kehidupan sehari-hari
+                1. Terwujudnya Yayasan yang unggul dan rujukan dalam istikomah menghafal dan mengamalkan al-Qur’an
                 <br>
-                2.     Membiasakan peserta didik berperilaku terpuji sesuai dengan akhlak Rosulullah Muhammad SAW.
+                2. Terwujudnya Yayasan yang unggul dalam Berakhakhul karimah dan kuat dalam karakter kepemimpinan.
                 <br>
-                3.     Mengembangkan potensi peserta didik dalam menggunakan ilmu pegetahuan dan teknologi untuk kemaslahatan umat.
+                3. Mewujudkan Yayasan yang membentuk masayarakat qur’ani dan kuat dalam Aqidah ahlusunnah wal jamaah.
                 <br>
-                4.     Menumbuhkembangkan lingkungan yang kondusif bagi peserta didik agar terbentuk menjadi insan yang cerdas dan shaleh.
+                4. Mewujudkan Yayasan yang multilingual dalam insan yang wawasan global dan shaleh.
                 <br>
-                5.     Membiasakan peserta didik menggunakan bahasa Arab dan Inggris sebagai bahasa sehari-hari.
+                5. Mengembangkan potensi peserta didik dalam menggunakan ilmu pengetahuan dan teknologi untuk kemaslahatan umat
               </p>
             </div>
           </div>
@@ -280,22 +280,17 @@
             
             {% if kegiatan_posts %}
             {% for post in kegiatan_posts %}
-            <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
-            <div class="container pt-5 pb-5">
+            <div class="container pt-5 pb-5 kegiatan">
               <div class="row text-center pt-5">
                 <h3>{{ post.postname}}</h3>
               </div>
-              
-              <div class="row">
-                <div class="col-5 text-center pt-3">
-                  <img style="width: 60%;" src="{{media_url}}{{post.image}}" alt="">
-                </div>
-                <div class="col-7 d-flex align-items-center">
-                  <p>{{ post.content|truncatewords:50|safe }}</p>
+              <p>{{ post.content|safe}}</p>
+              <div class="row ">
+                <div class="text-center pt-3">
+                  <img style="width: 80%;" src="{{media_url}}{{post.image}}" alt="">
                 </div>
               </div>
             </div>
-            </a>
             {% endfor %}
             {% else %}
             <p>No recent posts available.</p>
@@ -311,28 +306,82 @@
           
           <section>
             
-            {% if prestasi_posts %}
-            {% for post in prestasi_posts %}
-            <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
-            <div class="container pt-5 pb-5">
-              <div class="row text-center pt-5">
-                <h3>{{ post.postname}}</h3>
+            
+      <div class="row">
+        <div class="col-sm-9">
+            <div class="row pt-4">
+              {% if posts_asia %}
+              <h4>TINGKAT ASIA<br><br></h4>
+              {% for post in posts_asia %}
+              <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
+                   <p>{{post.postname}}</p>
+              </a>
+                {% endfor %}
+                {% else %}
+                <p><br>.</p>
+                {% endif %}
               </div>
-              <div class="row">
-                <div class="col-5 text-center pt-3">
-                  <img style="width: 60%;" src="{{media_url}}{{post.image}}" alt="">
-                </div>
-                <div class="col-7 d-flex align-items-center">
-                  <p>{{ post.content|truncatewords:50|safe }}</p>
-                </div>
+              <div class="row pt-4">
+                {% if posts_nasional %}
+                <h4>TINGKAT NASIONAL<br><br></h4>
+                {% for post in posts_nasional %}
+                   
+              <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
+                   <p>{{post.postname}}</p>
+                   </a>
+                {% endfor %}
+                {% else %}
+                <p><br></p>
+                {% endif %}
               </div>
-              
+              <div class="row pt-4">
+                {% if posts_provinsi %}
+                <h4>TINGKAT PROVINSI<br><br></h4>
+                {% for post in posts_provinsi %}
+                   
+              <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark"><p>{{post.postname}}</p></a>
+                {% endfor %}
+                {% else %}
+                <p><br></p>
+                {% endif %}
+              </div>
+              <div class="row pt-4">
+                {% if posts_kabupaten %}
+                <h4>TINGKAT KABUPATEN<br><br></h4>
+                {% for post in posts_kabupaten %}
+                   
+              <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
+                   <p>{{post.postname}}</p>
+                   </a>
+                {% endfor %}
+                {% else %}
+                <p><br></p>
+                {% endif %}
+              </div>
+        </div>
+        <div class="col-sm-3 pr">
+            <div class="row pt-4">
+                <h2>Prestasi Terbaru</h2>
             </div>
-            </a>
-            {% endfor %}
-            {% else %}
-            <p>No recent posts available.</p>
-            {% endif %}
+            <div class="row pt-">
+              {% if recent_posts %}
+              {% for post in recent_posts %}
+              <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
+                <div class="card mt-5" style="width: 18rem;">
+                    <img class="card-img-top" src="{{media_url}}{{post.image}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{post.postname}}</h5>
+                      <p class="card-text">{{post.content|truncatewords:20|safe}}</p>
+                    </div>
+                </div>
+                </a>
+                {% endfor %}
+                {% else %}
+                <p><br></p>
+                {% endif %}
+            </div>
+        </div>
+      </div>
           </section>
           <!-- AKHIR PRESTASI -->
         </div>

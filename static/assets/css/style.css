@@ -1,262 +1,323 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 body {
-    background-color: #FDFDFD;
-    font-family: 'Poppins', sans-serif;
-    /* font-family: 'Open Sans', sans-serif; */
+  background-color: #a22b2b;
+  font-family: "Poppins", sans-serif;
 }
 * {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-.navbar{
-    box-shadow: 15px 15px 15px rgba(0,0,0,0.03), -15px -15px 15px rgba(0,0,0,0.13);
+.navbar {
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.03),
+    -15px -15px 15px rgba(0, 0, 0, 0.13);
 }
-.navbar .navbar-expand-lg .navbar-light .bg-light{
-    background-color: #FDFDFD!important;
+.navbar .navbar-expand-lg .navbar-light .bg-light {
+  background-color: #a8f759 !important;
 }
-.navbar .container{
-    padding-top: 5px;
-    padding-bottom: 5px;
+.navbar .container {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
-    font-weight: 500;
+  font-weight: 500;
 }
-.navbar-expand-lg .navbar-nav .nav-link:hover{
-    border-bottom: 2px solid #E21919 ;
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+  border-bottom: 2px solid #06720a;
 }
 .nav-item .dropdown .dropdown-menu .dropdown-item {
-    font-size: small;
-    color: rgb(37, 37, 37);
-    font-weight: 300;
+  font-size: small;
+  color: rgb(37, 37, 37);
+  font-weight: 300;
+}
+
+.nav-link.active {
+  color: #12311e !important;
+  text-shadow: 2px 2px 5px rgba(0, 0, 1, 0.5); /* Bayangan pada teks */
+  padding: 0px 20px; /* Padding lebih lebar */
+  margin: 0 10px; /* Margin antar link lebih lebar */
+}
+.navbar-nav {
+  margin-left: auto; /* Menempatkan menu di kanan */
+}
+.navbar-brand {
+  margin-right: auto; /* Menempatkan logo di kiri */
 }
 
 /*  */
-.ml-20{
-    margin-left: 20px;
+.ml-20 {
+  margin-left: 20px;
 }
 .ml-30 {
-    margin-left: 40px;
+  margin-left: 40px;
 }
-.mt-50{
-    margin-top: 10%;
+.mt-50 {
+  margin-top: 10%;
 }
-.mt-100{
-    margin-top: 100px;
+.mt-100 {
+  margin-top: 100px;
 }
 .mt-200 {
-    margin-top: 200px;
+  margin-top: 200px;
 }
 .mt-150 {
-    margin-top: 150px;
+  margin-top: 150px;
 }
 /* akhir */
 
-.container-fluid{
-    background-color: #FDFDFD;
+.container-fluid {
+  /* background-color: #d3ded7; */
 }
 
-
-.i1 h2{
-    margin-top: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 300%;
-    color: #640202;
-}
-.i1 h5{
-    margin-top: -20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 170%;
-    color: #5e5e5e;
+.stat-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  background-color: #fff;
 }
 
-.i2 h3{
-    text-align: center;
-    margin-top: 30px;
-    font-family: 'Poppins', sans-serif;
-    color: rgb(37, 37, 37);
-    font-weight: 600;
-    font-size: 45px;
+.stat-card:hover {
+  transform: translateY(-10px);
 }
-.i2 h4{
-    text-align: center;
-    margin-top: 30px;
-    font-family: 'Poppins', sans-serif;
-    color: #640202;
-    font-weight: 480;
-    font-size: 30px;
+
+.stat-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: #4caf50;
 }
-.i2 p{
-    margin-top: 30px;
-    color: rgb(37, 37, 37);
-    line-height: normal;
-    text-align: justify;
+
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
-.i3 .card{
-    border: none;
+
+.stat-description {
+  font-size: 16px;
+  color: #666;
+}
+
+.i1 h2 {
+  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 300%;
+  color: #10683f;
+}
+.i1 h5 {
+  margin-top: -20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 170%;
+  color: #5e5e5e;
+}
+
+.i2 h3 {
+  text-align: center;
+  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(37, 37, 37);
+  font-weight: 600;
+  font-size: 45px;
+}
+.i2 h4 {
+  text-align: center;
+  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+  color: #10683f;
+  font-weight: 480;
+  font-size: 30px;
+}
+.i2 p {
+  margin-top: 30px;
+  color: rgb(37, 37, 37);
+  line-height: normal;
+  text-align: justify;
+}
+.i3 .card {
+  border: none;
 }
 .i3 .card:hover {
-    box-shadow: 15px 15px 15px rgba(82, 0, 0, 0.07), -15px -15px 15px rgba(80, 0, 0, 0.07);
-    zoom: 103%;
+  box-shadow: 15px 15px 15px rgba(82, 0, 0, 0.07),
+    -15px -15px 15px rgba(80, 0, 0, 0.07);
+  zoom: 103%;
 }
-.i6{
-    background-color: #FCCB1C;
+.i6 {
+  background-color: #fccb1c;
 }
 .i6 .row .col-sm-2 {
-    background: #FCCB1C;
+  background: #fccb1c;
 }
-.up, .wa {
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    background-color: #9B1E01;
-    border-radius: 100%;
-    text-decoration: none;
-    text-align: center;
-    line-height: 50px;
-    color: #FDFDFD;
-    font-size: 20px;
-    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
-    right: 50px;
-  }
-  .up {
-    bottom: 100px;
-  }
-  .wa {
-    bottom: 40px;
-  }
-  .up:hover {
-    color: #FDFDFD;
-    background-color: #B22222;
-  }
+.up,
+.wa {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: #4CAF50;
+  border-radius: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: #fdfdfd;
+  font-size: 20px;
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+  right: 50px;
+}
+.up {
+  bottom: 100px;
+}
+.wa {
+  bottom: 40px;
+}
+.up:hover {
+  color: #fdfdfd;
+  background-color: #b22222;
+}
 
-  .wa:hover{
-    color: #FDFDFD;
-    background-color: #B22222; 
-  }
-.ak1, .faq2 .btn {
-    font-family: 'Poppins', sans-serif;
-    border: none;
+.wa:hover {
+  color: #fdfdfd;
+  background-color: #b22222;
+}
+.ak1,
+.faq2 .btn {
+  font-family: "Poppins", sans-serif;
+  border: none;
 }
 
 .p1 {
-    line-height: 250%;
+  line-height: 250%;
 }
 
-.pr .card{
-    background-color: #fff2d7;
-    border: none;
-    padding-top: 2%;
-    border-radius: 0%;
-    box-shadow: 15px 15px 15px rgba(0,0,0,0.03), -15px -15px 15px rgba(0,0,0,0.03);
+.pr .card {
+  background-color: #fff2d7;
+  border: none;
+  padding-top: 2%;
+  border-radius: 0%;
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.03),
+    -15px -15px 15px rgba(0, 0, 0, 0.03);
 }
 
 /* jurusan */
 .j1 h4 {
-    font-size: 34px;
-    font-weight: 700;
-    line-height: normal;
-    color: rgb(22, 22, 22);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: normal;
+  color: rgb(22, 22, 22);
 }
 /* akhir jurusan */
 
 /* perpus */
-.perpres, .perpus{
-    line-height: normal;
+.perpres,
+.perpus {
+  line-height: normal;
 }
-.perpus h4, .kegiatan h4, .perpres h4, .hub h4, .profil h4{
-    color: #640202;
+.perpus h4,
+.kegiatan h4,
+.perpres h4,
+.hub h4,
+.profil h4 {
+  color: #10683f;
 }
-.perpus p, .perpres p, .hub p, .profil p, .kegiatan p{
-    font-size: 16px;
-    line-height: normal;
-    color: rgb(22, 22, 22);
-    text-align: justify;
+.perpus p,
+.perpres p,
+.hub p,
+.profil p,
+.kegiatan p {
+  font-size: 16px;
+  line-height: normal;
+  color: rgb(22, 22, 22);
+  text-align: justify;
 }
-.perpres img{
-    padding: 20px;
+.perpres img {
+  padding: 20px;
 }
-.kegiatan img{
-    border-radius: 6px;
+.kegiatan img {
+  border-radius: 6px;
 }
 /* akhir perpus */
 
 /* ekskul */
 .container.paskib {
-    text-align: center;  
-    font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
-.container.paskib h3{
-    color: #9B1E01;
-    size: 36px;
+.container.paskib h3 {
+  color: #4CAF50;
+  size: 36px;
 }
-.container.paskib p{
-    size: 14px;
-    margin-top: 4%;
-    margin-bottom: 4%;
+.container.paskib p {
+  size: 14px;
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 
-.container.choir { 
-    font-family: 'Poppins', sans-serif;
+.container.choir {
+  font-family: "Poppins", sans-serif;
 }
-.container.choir,.band,.tari h3{
-    text-align: center;  
-    color: #00526B;
-    size: 36px;
+.container.choir,
+.band,
+.tari h3 {
+  text-align: center;
+  color: #00526b;
+  size: 36px;
 }
-.container.band h1{
-    color: #00526B;
-    size: 54px;
+.container.band h1 {
+  color: #00526b;
+  size: 54px;
 }
-.container.choir p{
-    size: 14px;
-    margin-top: 6%;
-    text-align: justify;
+.container.choir p {
+  size: 14px;
+  margin-top: 6%;
+  text-align: justify;
 }
 /* akhir ekskul */
 
-
 /* faqs */
-#all p, #ppdb p{
-    font-family: 'Poppins', sans-serif;
-    color: #9B1E01;
+#all p,
+#ppdb p {
+  font-family: "Poppins", sans-serif;
+  color: #4CAF50;
 }
 .faq2 h1 {
-    text-align: center;  
-    font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 /* akhir faqs */
 
-
 /* helpdesk */
 .help1 h3 {
-    font-family: 'Poppins', sans-serif;
-    color:  #640202;
+  font-family: "Poppins", sans-serif;
+  color: #10683f;
 }
 .help1 .ikon {
-    color: #9B1E01;
+  color: #4CAF50;
 }
 /* akhir helpdesk */
 
-
 /* ppdb */
-    /* cek */
-    #cek {
-        font-family: 'Poppins', sans-serif;
-    }
+/* cek */
+#cek {
+  font-family: "Poppins", sans-serif;
+}
 
 /* akhir ppdb */
 
-
 /* footer */
-.foot h4{
-    font-family: 'Poppins', sans-serif;
-    font-size: large;
+.foot h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: large;
 }
 .foot {
-    background-color: #DBDADA;
+  background-color: #dbdada;
 }
 /* akhir footer */
 
+.custom-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.custom-link:hover {
+  text-decoration: underline;
+}

@@ -3,9 +3,12 @@
 {% block title %}SMK Telkom Purwokerto{% endblock %}
 {% block content %}
 
-  <section>
-    <img style="width: 100%; margin-top: 60px;" src="https://placehold.co/800x300" alt="">
-  </section>
+<section style="position: relative; text-align: center;">
+  <img width="100%" style="margin-top: 60px;height: 600px;object-fit: cover;filter: brightness(50%);" src="{% static 'assets/images/Header1.jpg' %}" alt="">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: white; font-weight: bold;">
+    PRESTASI
+  </div>
+</section>
 
 
   <!-- section -->
@@ -14,9 +17,9 @@
         <div class="col-sm-9">
             <div class="row pt-4">
               {% if posts_asia %}
+              <h4>TINGKAT ASIA<br><br></h4>
               {% for post in posts_asia %}
-                <h4>TINGKAT ASIA<br><br></h4>
-                   <p>{{post.postname}}</p>
+                   <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark"><p>{{post.postname}}</p></a>
                 {% endfor %}
                 {% else %}
                 <p><br>.</p>
@@ -24,9 +27,9 @@
               </div>
               <div class="row pt-4">
                 {% if posts_nasional %}
-                {% for post in posts_nasional %}
                 <h4>TINGKAT NASIONAL<br><br></h4>
-                   <p>{{post.postname}}</p>
+                {% for post in posts_nasional %}
+                   <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark"><p>{{post.postname}}</p></a>
                 {% endfor %}
                 {% else %}
                 <p><br></p>
@@ -34,9 +37,9 @@
               </div>
               <div class="row pt-4">
                 {% if posts_provinsi %}
-                {% for post in posts_provinsi %}
                 <h4>TINGKAT PROVINSI<br><br></h4>
-                   <p>{{post.postname}}</p>
+                {% for post in posts_provinsi %}
+                   <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark"><p>{{post.postname}}</p></a>
                 {% endfor %}
                 {% else %}
                 <p><br></p>
@@ -44,9 +47,9 @@
               </div>
               <div class="row pt-4">
                 {% if posts_kabupaten %}
-                {% for post in posts_kabupaten %}
                 <h4>TINGKAT KABUPATEN<br><br></h4>
-                   <p>{{post.postname}}</p>
+                {% for post in posts_kabupaten %}
+                   <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark"><p>{{post.postname}}</p></a>
                 {% endfor %}
                 {% else %}
                 <p><br></p>
@@ -60,6 +63,7 @@
             <div class="row pt-">
               {% if recent_posts %}
               {% for post in recent_posts %}
+              <a href="{% url 'beritadetail' post.id %}" class="text-decoration-none text-dark">
                 <div class="card mt-5" style="width: 18rem;">
                     <img class="card-img-top" src="{{media_url}}{{post.image}}" alt="Card image cap">
                     <div class="card-body">
@@ -67,7 +71,7 @@
                       <p class="card-text">{{post.content|truncatewords:20|safe}}</p>
                     </div>
                 </div>
-                
+              </a>
                 {% endfor %}
                 {% else %}
                 <p><br></p>

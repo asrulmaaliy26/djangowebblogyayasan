@@ -1,13 +1,51 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}SMK Telkom Purwokerto{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block title %}SMK Telkom
+Purwokerto{% endblock %} {% block extra_styles %}
+<style>
+  .hero-section h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #343a40;
+  }
+  .hero-section p {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  .hero-section img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+{% endblock %} {% block content %}
 
-    <img style="margin-top: 60px;"  width="100%" src="https://placehold.co/800x300" alt="">
- 
-    <div class="container">
-      <h1 class="text-center">PPDB</h1>
+<section style="position: relative; text-align: center;">
+  <img width="100%" style="margin-top: 60px;height: 600px;object-fit: cover;filter: brightness(50%);" src="{% static 'assets/images/Header1.jpg' %}" alt="">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: white; font-weight: bold;">
+    PPDB
+  </div>
+</section>
+
+<div class="container my-5">
+  <h1 class="text-center">PPDB</h1>
+</div>
+<div class="hero-section">
+  <div class="container">
+    <div class="row justify-content-center align-items-center mb-5">
+      <div class="col-7">
+        <h1>Panduan Lengkap</h1>
+        <p>
+          Panduan lengkap redirect url agar lebih seo friendly dan tidak
+          mengganggu traffic website anda!
+        </p>
+        <a href="https://ppdb.almannan.id/" class="btn btn-primary mt-3">Pelajari Lebih Lanjut</a>
+      </div>
+      <img class="col-3" src="{% static "assets/images/ppdb.png" %}" alt="Hero Image" />
     </div>
+  </div>
+</div>
 
-  <!-- akhir  tab -->
-  {% endblock %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- akhir  tab -->
+{% endblock %}
