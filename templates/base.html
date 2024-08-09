@@ -10,6 +10,21 @@
   <link rel="icon" href="{% static 'assets/images/logo_utama.jpg' %}" type="image/x-icon">
 
   {% include "snippets/styles.html" %}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .content {
+        flex: 1;
+    }
+  </style>
   {% block extra_styles %}
   <!-- Additional CSS can be added here -->
    
