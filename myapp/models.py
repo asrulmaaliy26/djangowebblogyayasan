@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from ckeditor.fields import RichTextField
-
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 # Create your models here.
 
 class Category(models.Model):
@@ -29,6 +30,11 @@ class Post(models.Model):
     
     def __str__(self):
         return str(self.postname)
+
+@receiver(post_delete, sender=Post)
+def delete_post_image(sender, instance, **kwargs):
+    if instance.image:
+        instance.image.delete(False)
 
 class Contact(models.Model):
     name = models.CharField(max_length=600)
